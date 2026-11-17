@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern online store. Browse products, choose your size, and place an order.">
+  <title>NOIR & CO. — Curated Goods</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">A LITTLE SOMETHING GOOD, DELIVERED TO YOU <span>✦</span> SHOP THE COLLECTION</div>
+  <header class="site-header">
+    <a class="brand" href="#"><span class="brand-mark">N.</span><span>NOIR <i>&</i> CO.</span></a>
+    <nav class="desktop-nav"><a href="#shop">Shop all</a><a href="#story">Our story</a><a href="#help">Help</a></nav>
+    <button class="cart-trigger" id="cartTrigger" aria-label="Open cart">BAG <span id="cartCount">0</span> <b>↗</b></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY EDIT — 2026</p>
+        <h1>Good things.<br><em>Great choices.</em></h1>
+        <p class="hero-description">Thoughtfully selected favourites, made easy to shop. Find your next must-have in our latest collection.</p>
+        <a class="button button-dark" href="#shop">Explore the collection <span>↘</span></a>
+        <div class="hero-note"><span class="tiny-star">✳</span> Carefully packed. Delivered with care.</div>
+      </div>
+      <div class="hero-art">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="hero-image-frame"><img src="images/weed.jpg" alt="Add your featured store image here" onerror="this.style.display='none';this.parentElement.classList.add('image-placeholder')"><span class="placeholder-label">YOUR FEATURE IMAGE</span></div>
+        <div class="floating-tag">GET<br>YOUR WEED <span>✳</span></div>
+        <div class="vertical-caption">SELECTED FOR YOU · EST. 2026</div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE GOOD STUFF</p><h2>Shop the collection<span class="period">.</span></h2></div>
+        <p class="section-side-note">Choose a product, select your preferred gram size<br>and quantity, then add it to your bag.</p>
+      </div>
+      <div class="filter-row"><span id="productTotal">OUR COLLECTION</span><span>✦ CURATED WITH CARE</span></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="story-strip" id="story">
+      <div class="story-symbol">✳</div><div><p class="eyebrow">A BETTER WAY TO SHOP</p><h2>Simple choices.<br><em>Thoughtful details.</em></h2></div>
+      <p>We believe shopping should feel effortless. Pick what you love, choose the size and amount that suit you, and leave the rest to us.</p>
+    </section>
+
+    <section class="service-row" id="help">
+      <div><span>01 /</span><b>Careful packaging</b><small>Prepared with attention</small></div>
+      <div><span>02 /</span><b>Easy ordering</b><small>Your choices, your way</small></div>
+      <div><span>03 /</span><b>Customer support</b><small>Here when you need us</small></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">N.</span><span>NOIR <i>& CO.</i></span></a><p>GOOD THINGS, CHOSEN WELL.</p><small>© 2026 NOIR & CO. Replace this brand name with yours.</small></footer>
+
+
+  <button class="floating-bag" id="floatingBagTrigger" aria-label="Open shopping bag" title="Open shopping bag">
+    <span class="floating-bag-icon" aria-hidden="true">▱</span>
+    <span class="floating-bag-label">BAG</span>
+    <span class="floating-bag-count" id="floatingCartCount">0</span>
+  </button>
+
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="drawer-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawerCount">(0)</span></h2></div><button class="icon-button" id="closeCart" aria-label="Close bag">✕</button></div>
+    <div class="cart-items" id="cartItems"><div class="empty-bag">Your bag is waiting for something good. ✳</div></div>
+    <div class="drawer-bottom"><div class="total-line"><span>Subtotal</span><strong id="cartSubtotal">₦0</strong></div><p class="shipping-note">Delivery fees, if applicable, are confirmed with your order.</p><button class="button button-dark checkout-button" id="checkoutButton">Continue to checkout <span>→</span></button></div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkoutModal">
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="modal-heading"><div><p class="eyebrow">ALMOST THERE</p><h2 id="checkoutTitle">Delivery & payment</h2></div><button class="icon-button" id="closeCheckout" aria-label="Close checkout">✕</button></div>
+      <div class="checkout-layout">
+        <form id="orderForm">
+          <h3>01 — Your details</h3>
+          <label>Full name<input name="customerName" required autocomplete="name" placeholder="Enter your full name"></label>
+          <div class="form-two"><label>Phone number<input name="phone" required type="tel" autocomplete="tel" placeholder="+234..."></label><label>Email address <small>(optional)</small><input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label></div>
+          <label>Delivery address<textarea name="address" required rows="3" placeholder="House number, street, area, city and state"></textarea></label>
+          <label>Delivery note <small>(optional)</small><textarea name="note" rows="2" placeholder="Landmark or extra delivery instructions"></textarea></label>
+          <h3 class="payment-title">02 — Choose payment</h3>
+          <label class="payment-option"><input type="radio" name="payment" value="giftcard" required><span><b>Gift card</b><small>Upload a clear picture of your gift card.</small></span><strong>✉</strong></label>
+          <div class="payment-upload-panel" id="giftCardPanel" hidden>
+            <b>Upload your gift card</b>
+            <p>Choose a clear image of the gift card. Do not upload account passwords or unrelated personal documents.</p>
+            <label class="upload-control"> <span>＋ Choose gift card image</span><input type="file" id="giftCardFile" name="giftCardImage" accept="image/png,image/jpeg,image/webp,application/pdf"></label>
+            <small class="file-name" id="giftCardFileName">PNG, JPG, WEBP or PDF · max 5MB</small>
+          </div>
+          <label class="payment-option"><input type="radio" name="payment" value="crypto"><span><b>Crypto — USDT</b><small>View the wallet address and upload your payment proof.</small></span><strong>₮</strong></label>
+          <div class="payment-upload-panel" id="cryptoPanel" hidden>
+            <b>Pay with USDT</b>
+            <p>Network: <strong id="usdtNetworkLabel">TRC20</strong></p>
+            <div class="wallet-address"><code id="usdtAddressLabel">YOUR_USDT_WALLET_ADDRESS</code><button type="button" id="copyWallet">Copy</button></div>
+            <p class="upload-warning">Confirm the wallet address and network with the store before transferring. Sending on the wrong network may result in permanent loss.</p>
+            <b>Upload payment proof</b>
+            <label class="upload-control"><span>＋ Choose payment screenshot / receipt</span><input type="file" id="cryptoProofFile" name="cryptoProof" accept="image/png,image/jpeg,image/webp,application/pdf"></label>
+            <small class="file-name" id="cryptoFileName">PNG, JPG, WEBP or PDF · max 5MB</small>
+          </div>
+          <p class="payment-warning">Your order, delivery details and selected payment file will be emailed to the store. Payment is confirmed manually; uploading proof does not mean payment has been verified.</p>
+          <button class="button button-dark place-order" type="submit">Place order <span>↗</span></button>
+        </form>
+        <aside class="order-summary">
+  <h3>YOUR ORDER</h3>
+
+  <div id="checkoutItems"></div>
+
+  <div class="total-line">
+    <span>Subtotal</span>
+    <strong id="checkoutSubtotal">$0.00</strong>
+  </div>
+
+  <div class="total-line" id="deliveryFeeRow" hidden>
+    <span>Delivery fee</span>
+    <strong id="deliveryFeeAmount">$3.00</strong>
+  </div>
+
+  <div class="total-line summary-total">
+    <span>Total</span>
+    <strong id="checkoutTotal">$0.00</strong>
+  </div>
+
+  <p>Delivery fee of $3.00 is added when you enter your delivery address.</p>
+</aside>
+      </div>
+    </section>
+  </div>
+
+  <div class="confirmation-backdrop" id="confirmation">
+    <div class="confirmation-card">
+      <button class="icon-button confirmation-close" id="closeConfirmation" aria-label="Close">✕</button>
+      <div class="success-mark">✓</div><p class="eyebrow">ORDER DETAILS READY</p><h2>Thank you<span class="period">.</span></h2>
+      <p id="confirmationText">Your order details have been prepared.</p>
+      <div class="payment-instructions" id="paymentInstructions"></div>
+      <button class="button button-dark" id="emailOrder">Email order details <span>↗</span></button>
+      <p class="small-print">This demo prepares an email; it does not process payments or automatically send an order. Contact the store to confirm payment and delivery.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

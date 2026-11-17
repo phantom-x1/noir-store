@@ -1,0 +1,1 @@
+Add hero.jpg and product-1.jpg, product-2.jpg, product-3.jpg to this folder. You can add more image files and update their paths in script.js.
