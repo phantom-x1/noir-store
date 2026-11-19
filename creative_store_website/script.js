@@ -5,7 +5,7 @@
 */
 const STORE_CONFIG = {
   currency: "$",
-  giftCardEmail: "aladejesu02@gmail.com@gmail.com",
+  giftCardEmail: "aladejesu02@gmail.com",
   usdtAddress: "TKXi5gzaNLeboG1pozXN2h487PYknTMHAS",
   usdtNetwork: "TRC20",
   deliveryFee: 3,
