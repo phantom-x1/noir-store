@@ -57,8 +57,7 @@ transporter.verify((error) => {
   }
 });
 
-// SERVE WEBSITE
-app.use(express.static(__dirname));
+
 
 // PLACE ORDER
 app.post(
@@ -259,6 +258,10 @@ if (
 }
 
 // START SERVER
-app.listen(PORT, () => {
-  console.log(`Store running at http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Store running at http://localhost:${PORT}`);
+  });
+}
